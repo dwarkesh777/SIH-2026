@@ -437,7 +437,7 @@ print(f"Organic Remedy: {result['organic_remedy']}")
 | `SECRET_KEY` | Django cryptographic secret key | `your-long-random-secret-string` |
 | `ALLOWED_HOSTS` | Comma-separated allowed hostnames | `localhost,127.0.0.1` |
 | `CORS_ALLOWED_ORIGINS` | Comma-separated frontend origins | `http://localhost:5173,http://127.0.0.1:5173` |
-| `OPENWEATHER_API_KEY` | OpenWeatherMap API key for live forecasts | `d4e26747923614e5710c729f94d3748c` |
+| `OPENWEATHER_API_KEY` | OpenWeatherMap API key for live forecasts | `your_openweather_api_key_here` |
 | `GEMINI_API_KEY` | Google AI Studio Gemini API Key | `AIzaSy...` |
 | `JWT_SECRET_KEY` | Secret key used for signing JWT tokens | `jwt-secret-string` |
 | `ACCESS_TOKEN_LIFETIME_MINUTES` | Lifetime of JWT Access Token | `60` |

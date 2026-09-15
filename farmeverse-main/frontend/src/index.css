@@ -1,0 +1,172 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#f4f7f5] text-[#1e293b] font-sans antialiased selection:bg-emerald-500 selection:text-white;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Hide native browser password reveal */
+  input::-ms-reveal,
+  input::-ms-clear {
+    display: none;
+  }
+
+  /* Sleek custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-300 rounded-full hover:bg-slate-400 transition-colors;
+  }
+
+  /* Inputs and controls */
+  input[type="text"],
+  input[type="number"],
+  input[type="date"],
+  input[type="email"],
+  input[type="password"],
+  select,
+  textarea {
+    @apply bg-white text-slate-800 border border-slate-200 rounded-xl px-4 py-2.5 text-xs md:text-sm font-medium outline-none transition-all duration-200 focus:border-emerald-600 focus:ring-4 focus:ring-emerald-500/10 placeholder:text-slate-400 shadow-sm;
+  }
+
+  select {
+    @apply pr-10 cursor-pointer appearance-none;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%2364748b' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3E%3C/svg%3E");
+    background-position: right 0.75rem center;
+    background-repeat: no-repeat;
+    background-size: 1.25rem;
+  }
+
+  textarea {
+    @apply resize-none;
+  }
+
+  /* Modern table styling */
+  table {
+    @apply w-full text-left border-collapse min-w-max;
+  }
+
+  thead {
+    @apply sticky top-0 bg-slate-50/90 backdrop-blur-sm z-10 border-b border-slate-200/80;
+  }
+
+  th {
+    @apply p-4 text-slate-500 text-[11px] font-bold uppercase tracking-wider select-none;
+  }
+
+  tbody tr {
+    @apply transition-colors duration-150 border-b border-slate-100 bg-white hover:bg-emerald-50/40;
+  }
+
+  td {
+    @apply p-4 text-xs md:text-sm text-slate-700 font-medium;
+  }
+}
+
+@layer utilities {
+  /* Glassmorphism Styles */
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+  }
+
+  .glass-dark {
+    background: rgba(15, 23, 42, 0.82);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .glass-sidebar {
+    background: linear-gradient(180deg, rgba(13, 37, 27, 0.96) 0%, rgba(10, 26, 20, 0.98) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .glow-emerald {
+    box-shadow: 0 0 25px -5px rgba(16, 185, 129, 0.35);
+  }
+
+  .glow-amber {
+    box-shadow: 0 0 25px -5px rgba(245, 158, 11, 0.35);
+  }
+
+  /* Custom Animations */
+  @keyframes floatSlow {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+  }
+
+  @keyframes pulseSlow {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.85; transform: scale(1.03); }
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  .animate-float {
+    animation: floatSlow 4s ease-in-out infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulseSlow 3s ease-in-out infinite;
+  }
+
+  .shimmer-effect {
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%);
+    background-size: 200% 100%;
+    animation: shimmer 2.5s infinite;
+  }
+}
+
+/* ─── Google Translate Widget Suppression ─── */
+body {
+  top: 0px !important;
+  position: static !important;
+}
+
+.goog-te-banner-frame,
+.goog-te-banner-frame.skiptranslate,
+iframe.goog-te-banner-frame {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+}
+
+#goog-gt-tt,
+.goog-te-balloon-frame {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+.goog-text-highlight {
+  background: none !important;
+  box-shadow: none !important;
+}
+
+#google_translate_element {
+  display: none !important;
+}
+
+.skiptranslate:not(.google-translate-active) {
+  display: none !important;
+}
+
