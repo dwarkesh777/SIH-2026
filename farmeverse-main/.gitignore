@@ -1,62 +1,133 @@
-# Dependency directories
-node_modules/
-jspm_packages/
-web_modules/
+# ==============================================================================
+# FarmeVerse AI (AgriSmart AI) — Comprehensive .gitignore
+# ==============================================================================
 
-# Build outputs
-dist/
-build/
-bin/
-obj/
-out/
-.next/
-.nuxt/
+# ------------------------------------------------------------------------------
+# 1. Environment Variables & Sensitive Credentials (NEVER COMMIT SECRETS)
+# ------------------------------------------------------------------------------
+.env
+.env.*
+*.env
+**/.env
+**/.env.*
+!**/.env.example
 
-# Python environment and compiled files
+# ------------------------------------------------------------------------------
+# 2. Python Environment, Cache & Compiled Artifacts
+# ------------------------------------------------------------------------------
 __pycache__/
+**/__pycache__/
 *.py[cod]
 *$py.class
-.venv/
-venv/
-ENV/
-env/
-active_env/
-*.sqlite3
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
 
-# System and editor files
+# Virtual Environments
+venv/
+.venv/
+**/venv/
+**/.venv/
+env/
+ENV/
+active_env/
+env.bak/
+venv.bak/
+
+# ------------------------------------------------------------------------------
+# 3. Node.js & Frontend Build Outputs
+# ------------------------------------------------------------------------------
+node_modules/
+**/node_modules/
+jspm_packages/
+web_modules/
+.npm
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Frontend Bundles
+**/dist/
+dist/
+dist-ssr/
+.next/
+.nuxt/
+out/
+
+# ------------------------------------------------------------------------------
+# 4. Databases & SQLite Files
+# ------------------------------------------------------------------------------
+*.sqlite3
+*.sqlite3-journal
+*.db
+**/db.sqlite3
+**/db.sqlite3.backup
+mongodb_data/
+
+# ------------------------------------------------------------------------------
+# 5. Media & Static Files (User Uploads)
+# ------------------------------------------------------------------------------
+backend/media/*
+!backend/media/.gitkeep
+farmeverse-main/backend/media/*
+!farmeverse-main/backend/media/.gitkeep
+staticfiles/
+
+# ------------------------------------------------------------------------------
+# 6. Operating System & IDE Files
+# ------------------------------------------------------------------------------
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
-.vscode/
+desktop.ini
+
+# IDE & Editor Folders
 .idea/
+.vscode/
+*.swp
+*.swo
+*.swn
+*~
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
-*.swp
 
-# Environment variables
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-backend/.env
-frontend/.env
-*.env
-
-# Local database files / logs
+# ------------------------------------------------------------------------------
+# 7. Testing, Scratch, Debug & Dump Files
+# ------------------------------------------------------------------------------
 *.log
-mongodb_data/
-db/
-
-# SQLite database
-db.sqlite3
-
-# Media files
-media/
-
-# Static files
-staticfiles/
-# Added by cleanup
-*.pyc
-backend/db.sqlite3.backup
+*.tmp
+test_crop_err.txt
+test_verbose.txt
+test_out.txt
+test_leaf_sample.jpg
+bug.txt
+dump*.txt
+weather_dump.txt
+ExtractCheck.txt
+build_error*.txt
+patch_out.txt
+gu_lines.txt
+GovPatchTemp.jsx

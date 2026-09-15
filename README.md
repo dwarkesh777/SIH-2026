@@ -1,5 +1,7 @@
 # 🌾 FarmeVerse AI (AgriSmart AI)
+
 ### Intelligent Agriculture & Precision Farming Decision-Support Ecosystem
+
 *Transforming smallholder and commercial agriculture through Deep Learning, IoT Telemetry, Agro-Hydrological Science, and Multilingual Agentic AI.*
 
 ---
@@ -296,6 +298,7 @@ farmeverse-main/
 │   ├── schemes.json                     # Database of verified government schemes
 │   └── vercel.json                      # Vercel deployment configuration
 │
+├── .gitignore                           # Git ignore rules
 ├── first.mp4                            # Video demonstration part 1
 ├── secound.mp4                          # Video demonstration part 2
 ├── make_part__gwr_video_mvp.mp4         # Walkthrough MVP demo
@@ -358,7 +361,6 @@ cd farmeverse/farmeverse-main
    ```bash
    cp .env.example .env
    ```
-   *(Ensure `DEBUG=True` for local development. See [Environment Variables Configuration](#-environment-variables-configuration) for API keys).*
 
 5. **Run database migrations**:
    ```bash
@@ -438,7 +440,7 @@ print(f"Organic Remedy: {result['organic_remedy']}")
 | `ALLOWED_HOSTS` | Comma-separated allowed hostnames | `localhost,127.0.0.1` |
 | `CORS_ALLOWED_ORIGINS` | Comma-separated frontend origins | `http://localhost:5173,http://127.0.0.1:5173` |
 | `OPENWEATHER_API_KEY` | OpenWeatherMap API key for live forecasts | `your_openweather_api_key_here` |
-| `GEMINI_API_KEY` | Google AI Studio Gemini API Key | `AIzaSy...` |
+| `GEMINI_API_KEY` | Google AI Studio Gemini API Key | `your_gemini_api_key_here` |
 | `JWT_SECRET_KEY` | Secret key used for signing JWT tokens | `jwt-secret-string` |
 | `ACCESS_TOKEN_LIFETIME_MINUTES` | Lifetime of JWT Access Token | `60` |
 | `EMAIL_HOST` | SMTP server for OTP emails | `smtp.gmail.com` |
@@ -585,5 +587,3 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 <p align="center">
   <b>🌾 FarmeVerse AI (AgriSmart AI)</b> — <i>Empowering Farmers with Precision Intelligence for a Sustainable Tomorrow.</i>
 </p>
-#   S I H - 2 0 2 6  
- 
