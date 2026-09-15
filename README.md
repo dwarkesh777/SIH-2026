@@ -1,589 +1,1515 @@
-# 🌾 FarmeVerse AI (AgriSmart AI)
+🌾 FarmeVerse AI (AgriSmart AI)
 
-### Intelligent Agriculture & Precision Farming Decision-Support Ecosystem
+Intelligent Agriculture & Precision Farming Decision-Support Ecosystem
 
-*Transforming smallholder and commercial agriculture through Deep Learning, IoT Telemetry, Agro-Hydrological Science, and Multilingual Agentic AI.*
+Transforming smallholder and commercial agriculture through Deep Learning, IoT Telemetry, Agro-Hydrological Science, and Multilingual Agentic AI.
 
----
-
-[![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-[![Django 4.2](https://img.shields.io/badge/Django-4.2-092E20?style=for-the-badge&logo=django&logoColor=white)](https://www.djangoproject.com/)
-[![React 18](https://img.shields.io/badge/React-18.2-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactjs.org/)
-[![Vite](https://img.shields.io/badge/Vite-5.4-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
-[![TensorFlow 2.12+](https://img.shields.io/badge/TensorFlow-2.12%2B-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)](https://tensorflow.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.3-06B6D4?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![Macro-F1 Score](https://img.shields.io/badge/Macro--F1-0.9184-brightgreen?style=for-the-badge&logo=ai&logoColor=white)](farmeverse-main/report/model_report.md)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
+""Python 3.10+" (https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)" (https://www.python.org/)
+""Django 4.2" (https://img.shields.io/badge/Django-4.2-092E20?style=for-the-badge&logo=django&logoColor=white)" (https://www.djangoproject.com/)
+""React 18" (https://img.shields.io/badge/React-18.2-61DAFB?style=for-the-badge&logo=react&logoColor=black)" (https://react.dev/)
+""Vite" (https://img.shields.io/badge/Vite-5.4-646CFF?style=for-the-badge&logo=vite&logoColor=white)" (https://vitejs.dev/)
+""TensorFlow" (https://img.shields.io/badge/TensorFlow-2.12%2B-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)" (https://www.tensorflow.org/)
+""Tailwind CSS" (https://img.shields.io/badge/Tailwind_CSS-3.3-06B6D4?style=for-the-badge&logo=tailwind-css&logoColor=white)" (https://tailwindcss.com/)
+""Macro-F1" (https://img.shields.io/badge/Macro--F1-0.9184-brightgreen?style=for-the-badge)" (#-model-performance)
+""License: MIT" (https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)" (#-license)
 
 ---
 
-## 📖 Table of Contents
+📖 Table of Contents
 
-1. [Project Overview](#-project-overview)
-2. [Key Value Proposition](#-key-value-proposition)
-3. [Ecosystem Portals & User Roles](#-ecosystem-portals--user-roles)
-4. [Comprehensive Feature Matrix](#-comprehensive-feature-matrix)
-5. [Core Deep Learning & Science Models](#-core-deep-learning--science-models)
-6. [System Architecture & Data Flow](#-system-architecture--data-flow)
-7. [Tech Stack](#-tech-stack)
-8. [Repository Directory Structure](#-repository-directory-structure)
-9. [Prerequisites & System Requirements](#-prerequisites--system-requirements)
-10. [Quick Start & Local Setup Guide](#-quick-start--local-setup-guide)
-11. [Environment Variables Configuration](#-environment-variables-configuration)
-12. [Verification & Test Suite](#-verification--test-suite)
-13. [API Endpoints Reference](#-api-endpoints-reference)
-14. [Deployment Guide](#-deployment-guide)
-15. [Limitations & Roadmap](#-limitations--roadmap)
-16. [Contributing & License](#-contributing--license)
-
----
-
-## 🌟 Project Overview
-
-**FarmeVerse AI** (also recognized as **AgriSmart AI**) is a modern, unified precision agriculture and farm management platform engineered to tackle critical challenges faced by farmers in India and developing agricultural economies. By integrating **Computer Vision foliar diagnostics**, **Machine Learning crop suitability analysis**, **FAO-56 Penman-Monteith scientific irrigation modeling**, **real-time agrometeorological forecasting**, **IoT telemetry streaming**, and **Multilingual Generative AI with voice recognition (STT/TTS)**, FarmeVerse empowers farmers with end-to-end, actionable intelligence from seed to sale.
-
-Whether accessed via smartphone, tablet, or desktop in local languages (**Gujarati, Hindi, English**), the platform provides real-time decision-support to maximize crop yields, prevent disease outbreaks, conserve freshwater resources, minimize chemical inputs, and optimize harvest profitability.
+1. "Project Overview" (#-project-overview)
+2. "Demo Video" (#-demo-video)
+3. "Key Value Proposition" (#-key-value-proposition)
+4. "Ecosystem Portals & User Roles" (#-ecosystem-portals--user-roles)
+5. "Comprehensive Feature Matrix" (#-comprehensive-feature-matrix)
+6. "Core AI & Scientific Models" (#-core-ai--scientific-models)
+7. "System Architecture & Data Flow" (#-system-architecture--data-flow)
+8. "Technology Stack" (#-technology-stack)
+9. "Repository Directory Structure" (#-repository-directory-structure)
+10. "Prerequisites & System Requirements" (#-prerequisites--system-requirements)
+11. "Quick Start & Local Setup" (#-quick-start--local-setup)
+12. "Environment Variables" (#-environment-variables)
+13. "Database Configuration" (#-database-configuration)
+14. "API Endpoints" (#-api-endpoints)
+15. "Verification & Testing" (#-verification--testing)
+16. "Deployment Guide" (#-deployment-guide)
+17. "Security Considerations" (#-security-considerations)
+18. "Limitations & Roadmap" (#-limitations--roadmap)
+19. "Contributing" (#-contributing)
+20. "License" (#-license)
+21. "Acknowledgements" (#-acknowledgements)
 
 ---
 
-## 💡 Key Value Proposition
+🌟 Project Overview
 
-- 🔬 **High-Accuracy Disease Detection**: MobileNetV2 deep learning model with **92.40% Accuracy** and **0.9184 Macro-F1** across 21 foliar disease categories with organic and chemical remedies.
-- 💧 **Water Conservation by Science**: FAO-56 Penman-Monteith evapo-transpiration water balance model that computes exact water deficit and pump runtimes, curbing over-irrigation.
-- 🌾 **Hyper-Localized Crop Recommendations**: Machine learning model trained on regional Indian/Gujarat agricultural data recommending optimal crops based on soil nutrients, pH, rainfall, temperature, and season.
-- 🗣️ **Accessible Multilingual GenAI & Voice Assistant**: Voice-enabled conversational AI supporting **Gujarati (`gu`)**, **Hindi (`hi`)**, and **English (`en`)** powered by Google Gemini, grounded in live farm telemetry.
-- 📡 **Real-Time IoT Sensor Integration**: Simulated and hardware-ready ESP32/Raspberry Pi telemetry feeds tracking soil moisture, temperature, electrical conductivity, pH, and ambient humidity.
-- 🤖 **Autonomous Agentic Advisory**: An automated **Observe $\rightarrow$ Reason $\rightarrow$ Decide $\rightarrow$ Act / Notify** loop delivering auditable, transparent recommendations.
-- 📊 **Real Mandi Price Intelligence**: Live APMC market price tracking and trend analytics sourced from Agmarknet.
-- 🏛️ **Government Subsidies & Schemes Directory**: Comprehensive central and state (e.g., i-Khedut, PM-KISAN) scheme navigator with eligibility filters and application walkthroughs.
+FarmeVerse AI, also known as AgriSmart AI, is an intelligent agriculture and precision-farming decision-support ecosystem designed for farmers, agricultural experts, and administrators.
 
----
+The platform combines:
 
-## 👥 Ecosystem Portals & User Roles
+- 🤖 Artificial Intelligence
+- 🧠 Deep Learning
+- 📷 Computer Vision
+- 🌾 Machine Learning
+- 💧 Agro-Hydrological Modeling
+- 📡 IoT Telemetry
+- 🌦️ Weather Intelligence
+- 🗣️ Multilingual Generative AI
+- 📊 Agricultural Market Intelligence
+- 🏛️ Government Scheme Discovery
+- 👨‍🌾 Farmer-Expert Consultation
 
-FarmeVerse AI features a role-based architecture with distinct interfaces tailored to key stakeholders:
+The objective is to provide farmers with actionable intelligence from crop planning to cultivation, disease management, irrigation, harvesting, and market realization.
 
-```
-                               ┌────────────────────────────────┐
-                               │   FarmeVerse AI Unified Auth   │
-                               └───────────────┬────────────────┘
-                                               │
-               ┌───────────────────────────────┼───────────────────────────────┐
-               ▼                               ▼                               ▼
-     ┌───────────────────┐           ┌───────────────────┐           ┌───────────────────┐
-     │   Farmer Portal   │           │   Expert Portal   │           │   Admin Portal    │
-     │  (Field Decision) │           │ (Agronomy Support)│           │ (System & Audit)  │
-     └───────────────────┘           └───────────────────┘           └───────────────────┘
-```
+The platform is designed with a mobile-first approach and supports:
 
-### 1. 👨‍🌾 Farmer Portal
-- **Interactive Dashboard**: Farm metrics, weather snapshot, quick-action shortcuts, and health summaries.
-- **Disease Diagnosis**: Instant leaf image upload/capture with instant pathology classification and prescription.
-- **Smart Irrigation**: Real-time soil moisture and pump runtime recommendations.
-- **Crop Planning & Records**: Digital farm field mapping, sowing logs, expense ledgers, and harvest estimates.
-- **Crop Recommendation**: Soil and climate-informed crop suitability selector.
-- **Mandi Prices**: APMC market price tracking across districts and commodities.
-- **Profit Calculator**: Production cost vs. expected market realization estimator.
-- **Sustainability Score**: Eco-rating benchmark ($0-100$) with water and carbon footprint indicators.
-- **Voice Assistant**: Gujarati/Hindi/English conversational bot with microphone STT and audio TTS.
-- **Expert Consultations**: Direct chat with certified agronomists and extension specialists.
-
-### 2. 🧑‍🔬 Agriculture Expert Portal
-- **Consultation Inbox**: Queue of farmer queries categorized by urgency and crop category.
-- **Case Review & Diagnosis**: View high-resolution leaf images, farmer field metadata, and historical records.
-- **Prescription & Advisory**: Submit expert responses, chemical/biological treatment plans, and cultural practices.
-- **Availability Management**: Toggle consultation availability and view ratings/feedback.
-
-### 3. 🛡️ Admin Portal
-- **Analytics & Telemetry**: Farm telemetry logs, regional crop distribution, system utilization rates.
-- **User & Role Administration**: Manage farmer accounts, verify agricultural expert credentials.
-- **Government Schemes CMS**: Add, update, and manage state and national welfare schemes.
-- **Export Reports**: Generate downloadable telemetry and performance reports (CSV/JSON).
+- 🇮🇳 Gujarati
+- 🇮🇳 Hindi
+- 🌐 English
 
 ---
 
-## 🧩 Comprehensive Feature Matrix
+🎥 Demo Video
 
-| Module | Classification | Description & Capabilities | Status |
-| :--- | :---: | :--- | :---: |
-| **Foliar Disease Detection** | **Core Computer Vision** | 21-class leaf disease classifier trained on PlantVillage and PlantDoc field benchmarks. Outputs diagnosis, confidence score, organic remedies, chemical treatments, and prevention guidelines. | ✅ Production Ready |
-| **Crop Recommendation Engine** | **Machine Learning** | Random Forest algorithm predicting optimal crops based on N-P-K, soil type, pH, rainfall, temperature, humidity, season, and district (with specialized Gujarat datasets). | ✅ Production Ready |
-| **Smart Irrigation Advisor** | **Agro-Hydrology (FAO-56)** | Computes root-zone water balance, reference evapotranspiration ($ET_0$), water deficit (mm), and precise pump run times (hrs/mins) taking rainfall forecast into account. | ✅ Production Ready |
-| **Weather Intelligence & Spray Windows** | **Agrometeorology** | 5-day / 3-hour agrometeorological forecast feeds via OpenWeatherMap, extreme weather alerts (frost, heatwave, storm), and optimal chemical spraying windows. | ✅ Production Ready |
-| **Sustainability & Eco-Score** | **Environmental Science** | Transparent reproducible formula ($0-100$) evaluating Water Efficiency (40%), Soil & Bio-Input Health (35%), and IPM Practices (25%). Quantifies annual liters saved and $CO_2$ offset. | ✅ Production Ready |
-| **Multilingual GenAI Assistant** | **Conversational AI** | LLM-backed agronomist assistant (Google Gemini) supporting Gujarati, Hindi, and English with voice speech-to-text (STT) and text-to-speech (TTS) synthesis. Grounded in user's farm records. | ✅ Production Ready |
-| **IoT Sensor Telemetry Stream** | **Hardware / IoT Simulation** | Live sensor telemetry stream (Soil Moisture, Soil Temp, Humidity, pH, N-P-K) mimicking ESP32/Raspberry Pi gateway with 24-hour historical logging. | ✅ Production Ready |
-| **Autonomous Agentic Advisor** | **Agentic AI** | Closed-loop **Observe $\rightarrow$ Reason $\rightarrow$ Decide $\rightarrow$ Act / Notify** pipeline generating priority-ranked interventions with a step-by-step reasoning audit trail. | ✅ Production Ready |
-| **Mandi Market Prices** | **Market Intelligence** | Live APMC mandi price tracking and price analytics across agricultural commodities and districts via Agmarknet data ingestion. | ✅ Production Ready |
-| **Farm & Crop Records** | **Farm Management** | Multi-plot farm registration, crop life-cycle stages (sowing, vegetative, flowering, maturity), input cost tracking, and harvest logging. | ✅ Production Ready |
-| **Profit & Yield Calculator** | **Agri-Economics** | Cultivation cost vs. yield and market rate calculator providing projected net margin and break-even analysis. | ✅ Production Ready |
-| **Government Schemes Directory** | **Policy & Welfare** | Curated catalog of national and Gujarat state agricultural schemes (PM-KISAN, PMFBY, i-Khedut, Solar Pump, Micro Irrigation) with eligibility checkers. | ✅ Production Ready |
-| **Farmer-Expert Tele-Consultation** | **Collaborative Care** | Two-way communication thread between farmers and certified agronomists with photo attachments, prescriptions, and rating system. | ✅ Production Ready |
+FarmeVerse AI — Complete Platform Demonstration
+
+Watch the complete demonstration of the FarmeVerse AI platform, including the major farmer, expert, AI, irrigation, IoT, market, and advisory features.
+
+▶️ "Watch the FarmeVerse AI Demo Video" (https://drive.google.com/file/d/11fxDEKGKWRZ_HDj79dI3J_0VXmJzxOC7/view?usp=drivesdk)
+
+Demo Platform: FarmeVerse AI / AgriSmart AI
+Video Hosting: Google Drive
+
+«Note: The video is hosted externally on Google Drive. Make sure the Google Drive sharing permission is set to Anyone with the link → Viewer so GitHub visitors can access it.»
 
 ---
 
-## 🧠 Core Deep Learning & Science Models
+💡 Key Value Proposition
 
-### 1. Foliar Disease Classification Model
-- **Architecture**: `MobileNetV2` / `MobileNetV3` transfer learning backbone pretrained on ImageNet.
-- **Custom Classification Head**:
-  $$\text{Input (224}\times\text{224}\times\text{3)} \rightarrow \text{MobileNetV2} \rightarrow \text{GlobalAveragePooling2D} \rightarrow \text{BatchNorm} \rightarrow \text{Dropout(0.3)} \rightarrow \text{Dense(256, ReLU)} \rightarrow \text{Dropout(0.2)} \rightarrow \text{Dense(21, Softmax)}$$
-- **Target Classes (21 foliar states)**:
-  - **Apple**: Scab, Black Rot, Healthy
-  - **Bell Pepper**: Bacterial Spot, Healthy
-  - **Corn (Maize)**: Common Rust, Grey Leaf Spot, Healthy
-  - **Grape**: Black Rot, Leaf Blight (Isariopsis), Healthy
-  - **Potato**: Early Blight, Late Blight, Healthy
-  - **Tomato**: Bacterial Spot, Early Blight, Late Blight, Leaf Mould, Septoria Leaf Spot, Yellow Leaf Curl Virus (TYLCV), Healthy
-- **Performance Benchmarks**:
-  - **Macro-F1 Score**: `0.9184` *(+17.4% relative gain over baseline `0.7820`)*
-  - **Overall Accuracy**: `92.40%`
-  - **Macro Precision**: `0.9215` | **Macro Recall**: `0.9162`
-  - **Inference Latency**: ~45 ms on CPU / ~12 ms on GPU
-
-### 2. Smart Irrigation Engine (FAO-56 Penman-Monteith)
-Root-zone soil water balance is modeled following the internationally validated Food and Agriculture Organization (FAO-56) guidelines:
-
-$$ET_c = K_c \times ET_0$$
-
-$$\text{Deficit (mm)} = (\text{Field Capacity} - \text{Current Soil Moisture}) \times \text{Root Depth} \times \text{Soil Bulk Density}$$
-
-- Takes into account: Crop growth stage coefficient ($K_c$), soil type hydraulic conductivity, upcoming 24-hour rainfall forecast, and irrigation method efficiency (Drip: 90%, Sprinkler: 75%, Flood: 60%).
-- Outputs: Decision status (`IRRIGATE_NOW`, `MONITOR`, `RAIN_DELAY`), recommended water volume ($m^3$/acre), and pump runtime (hours).
-
-### 3. Sustainability Score Formula
-A deterministic, reproducible scoring framework ($0 - 100$) evaluating agricultural stewardship:
-
-$$\text{Sustainability Score} = 0.40 \times S_{\text{water}} + 0.35 \times S_{\text{soil/inputs}} + 0.25 \times S_{\text{IPM/biodiversity}}$$
-
-- **Water Efficiency ($40\%$)**: Drip/micro-irrigation, sensor scheduling, rainwater harvesting.
-- **Resource Stewardship ($35\%$)**: Organic manure percentage, Soil Health Card adherence, crop rotation.
-- **IPM & Crop Health ($25\%$)**: Bio-pesticides adoption, early AI disease screening, reduced chemical spray counts.
-- **Quantified Impact Outputs**: Estimated annual water savings (liters) and greenhouse gas offset ($\text{kg CO}_2\text{e}$).
+Capability| Benefit
+📷 AI Disease Detection| Detects crop leaf diseases using deep learning
+🌾 Crop Recommendation| Recommends suitable crops using soil and climate parameters
+💧 Smart Irrigation| Calculates irrigation requirements using FAO-56 methodology
+🌦️ Weather Intelligence| Provides weather forecasts and agricultural alerts
+📡 IoT Telemetry| Monitors farm sensor data in near real time
+🗣️ Multilingual AI| Provides agricultural assistance in Gujarati, Hindi and English
+🤖 Agentic Advisory| Converts farm observations into prioritized actions
+📊 Mandi Intelligence| Tracks agricultural market prices
+💰 Profit Calculator| Estimates cultivation cost, revenue and profit
+🏛️ Government Schemes| Helps farmers discover relevant subsidies and schemes
+🧑‍🔬 Expert Consultation| Connects farmers with agricultural experts
+🌱 Sustainability Score| Measures water, soil and IPM practices
 
 ---
 
-## 🏗️ System Architecture & Data Flow
+👥 Ecosystem Portals & User Roles
 
-```
-   ┌──────────────────────────────┐                ┌──────────────────────────────┐
-   │     Physical Farm Layer      │                │       Agro Data Feeds        │
-   │  ESP32 / LoRa / Soil Sensors │                │  Agmarknet / OpenWeather API │
-   └──────────────┬───────────────┘                └──────────────┬───────────────┘
-                  │ Telemetry Stream                              │ REST Ingestion
-                  ▼                                               ▼
-   ┌──────────────────────────────────────────────────────────────────────────────┐
-   │                      FarmeVerse Django REST Backend API                      │
-   │  ┌──────────────────────┬──────────────────────┬──────────────────────────┐  │
-   │  │  JWT Authentication  │ Farm & Crop Records  │ Expert Consultation Chat │  │
-   │  ├──────────────────────┼──────────────────────┼──────────────────────────┤  │
-   │  │ MobileNetV2 Disease  │ FAO-56 Irrigation    │ Multilingual Gemini GenAI│  │
-   │  │ Detection Engine     │ Engineering Engine   │ Conversational Agent     │  │
-   │  ├──────────────────────┼──────────────────────┼──────────────────────────┤  │
-   │  │ Scikit-Learn Crop    │ Sustainability Score │ Agentic Reasoning Loop   │  │
-   │  │ Recommendation       │ Formula Engine       │ (Observe-Reason-Act)     │  │
-   │  └──────────────────────┴──────────────────────┴──────────────────────────┘  │
-   └──────────────────────────────────────┬───────────────────────────────────────┘
-                                          │ JSON / REST APIs
-                                          ▼
-   ┌──────────────────────────────────────────────────────────────────────────────┐
-   │                   React 18 + Vite + Tailwind CSS Frontend                    │
-   │  ┌─────────────────────────────────┬──────────────────────────────────────┐  │
-   │  │ Responsive Mobile-First Design  │ Web Speech API (STT Voice Input)     │  │
-   │  ├─────────────────────────────────┼──────────────────────────────────────┤  │
-   │  │ Framer Motion & Lucide Visuals  │ Responsive Audio (TTS Gujarati/Hindi)│  │
-   │  ├─────────────────────────────────┼──────────────────────────────────────┤  │
-   │  │ Farmer Portal Dashboard         │ Expert Review & Prescription Studio  │  │
-   │  └─────────────────────────────────┴──────────────────────────────────────┘  │
-   └──────────────────────────────────────────────────────────────────────────────┘
-```
+FarmeVerse AI uses a role-based architecture.
+
+                         ┌──────────────────────────────┐
+                         │     FarmeVerse AI Auth       │
+                         └───────────────┬──────────────┘
+                                         │
+             ┌───────────────────────────┼───────────────────────────┐
+             │                           │                           │
+             ▼                           ▼                           ▼
+     ┌─────────────────┐        ┌─────────────────┐        ┌─────────────────┐
+     │  Farmer Portal  │        │  Expert Portal  │        │  Admin Portal   │
+     │                 │        │                 │        │                 │
+     │ Farm Decisions  │        │ Agronomy        │        │ System & Audit  │
+     └─────────────────┘        └─────────────────┘        └─────────────────┘
+
+👨‍🌾 Farmer Portal
+
+Dashboard
+
+- Farm overview
+- Weather information
+- Soil and crop status
+- IoT sensor metrics
+- AI recommendations
+- Important alerts
+- Quick actions
+
+Disease Diagnosis
+
+- Upload/capture leaf image
+- AI-based classification
+- Disease confidence score
+- Organic treatment recommendations
+- Chemical treatment recommendations
+- Prevention guidelines
+
+Smart Irrigation
+
+- Soil moisture monitoring
+- Crop growth stage
+- ET₀ calculation
+- Crop evapotranspiration
+- Water deficit
+- Irrigation recommendation
+- Pump runtime estimation
+
+Crop Planning
+
+- Farm/plot registration
+- Crop selection
+- Sowing records
+- Growth-stage tracking
+- Input management
+- Harvest records
+
+Market Intelligence
+
+- Mandi prices
+- Commodity price tracking
+- District-wise market information
+- Price trend analysis
+
+Financial Tools
+
+- Cultivation cost calculator
+- Expected yield calculator
+- Revenue estimation
+- Profit estimation
+- Break-even analysis
+
+Sustainability
+
+- Sustainability score
+- Water efficiency
+- Soil health indicators
+- IPM adoption
+- Estimated water savings
+- Estimated carbon impact
+
+AI Assistant
+
+- Gujarati support
+- Hindi support
+- English support
+- Voice input
+- Text-to-speech
+- Farm-context-aware answers
 
 ---
 
-## 🛠️ Tech Stack
+🧑‍🔬 Agriculture Expert Portal
 
-### Backend & Machine Learning
-- **Core Framework**: [Django 4.2](https://www.djangoproject.com/) & [Django REST Framework 3.14](https://www.django-rest-framework.org/)
-- **Authentication**: [SimpleJWT](https://django-rest-framework-simplejwt.readthedocs.io/) (JSON Web Tokens) with role-based authorization
-- **Deep Learning**: [TensorFlow 2.12+](https://tensorflow.org/) & [Keras](https://keras.io/)
-- **Machine Learning**: [Scikit-Learn](https://scikit-learn.org/), [Pandas](https://pandas.pydata.org/), [NumPy](https://numpy.org/)
-- **Image Processing**: [Pillow (PIL)](https://pillow.readthedocs.io/)
-- **Generative AI**: [Google Generative AI (Gemini SDK)](https://ai.google.dev/)
-- **Database**: SQLite3 (Development) / PostgreSQL (Production ready)
-- **Web Server**: [Gunicorn](https://gunicorn.org/) (WSGI)
+Agricultural experts can:
 
-### Frontend & Client Applications
-- **Framework**: [React 18.2](https://reactjs.org/) (Single Page Application)
-- **Build Tool**: [Vite 5.4](https://vitejs.dev/)
-- **Styling**: [Tailwind CSS 3.3](https://tailwindcss.com/) & [PostCSS](https://postcss.org/)
-- **UI Animations**: [Framer Motion 12](https://www.framer.com/motion/) & [GSAP 3.15](https://greensock.com/gsap/)
-- **3D Visuals**: [Three.js](https://threejs.org/)
-- **Icons**: [Lucide React](https://lucide.dev/) & [React Icons](https://react-icons.github.io/react-icons/)
-- **HTTP Client**: [Axios](https://axios-http.com/) with JWT interceptors
-- **Routing**: [React Router DOM 6.14](https://reactrouter.com/)
-- **Forms**: [React Hook Form](https://react-hook-form.com/)
+- View farmer consultation requests
+- Prioritize urgent cases
+- Review crop information
+- Review uploaded leaf images
+- Examine farm history
+- Provide diagnosis
+- Recommend treatments
+- Provide cultural practices
+- Send prescriptions
+- Manage availability
+- Receive farmer feedback
 
 ---
 
-## 📁 Repository Directory Structure
+🛡️ Admin Portal
 
-```text
+Administrators can manage:
+
+- Users
+- Farmer accounts
+- Expert accounts
+- Roles and permissions
+- Farm records
+- IoT telemetry
+- Platform analytics
+- Government schemes
+- Market data
+- System reports
+- Audit information
+
+Reports can be exported in:
+
+- CSV
+- JSON
+
+---
+
+🧩 Comprehensive Feature Matrix
+
+Module| Technology / Classification| Description| Status
+Foliar Disease Detection| Deep Learning| 21-class crop disease classification| ✅ Production Ready
+Crop Recommendation| Machine Learning| Soil and climate-based crop selection| ✅ Production Ready
+Smart Irrigation| FAO-56| ET₀, water deficit and pump runtime| ✅ Production Ready
+Weather Intelligence| Agrometeorology| Forecasts, alerts and spray windows| ✅ Production Ready
+Sustainability Score| Environmental Science| 0–100 sustainability assessment| ✅ Production Ready
+Multilingual AI| Generative AI| Gujarati/Hindi/English agricultural assistant| ✅ Production Ready
+IoT Telemetry| IoT| Sensor data streaming and historical logs| ✅ Production Ready
+Agentic Advisor| Agentic AI| Observe → Reason → Decide → Act| ✅ Production Ready
+Mandi Prices| Market Intelligence| Agricultural commodity price tracking| ✅ Production Ready
+Farm Records| Farm Management| Plots, crops, expenses and harvests| ✅ Production Ready
+Profit Calculator| Agri-Economics| Cost, revenue and margin estimation| ✅ Production Ready
+Government Schemes| Policy| Scheme discovery and eligibility| ✅ Production Ready
+Expert Consultation| Collaboration| Farmer-expert communication| ✅ Production Ready
+
+---
+
+🧠 Core AI & Scientific Models
+
+1. 📷 Foliar Disease Classification
+
+The disease detection module uses transfer learning with MobileNetV2/MobileNetV3.
+
+Model Pipeline
+
+Input Image
+    │
+    ▼
+224 × 224 × 3
+    │
+    ▼
+MobileNetV2
+    │
+    ▼
+Global Average Pooling
+    │
+    ▼
+Batch Normalization
+    │
+    ▼
+Dropout (0.3)
+    │
+    ▼
+Dense (256, ReLU)
+    │
+    ▼
+Dropout (0.2)
+    │
+    ▼
+Dense (21, Softmax)
+    │
+    ▼
+Disease Prediction
+
+Supported Disease Classes
+
+🍎 Apple
+
+- Apple Scab
+- Apple Black Rot
+- Apple Healthy
+
+🌶️ Bell Pepper
+
+- Bacterial Spot
+- Healthy
+
+🌽 Corn / Maize
+
+- Common Rust
+- Grey Leaf Spot
+- Healthy
+
+🍇 Grape
+
+- Black Rot
+- Leaf Blight / Isariopsis
+- Healthy
+
+🥔 Potato
+
+- Early Blight
+- Late Blight
+- Healthy
+
+🍅 Tomato
+
+- Bacterial Spot
+- Early Blight
+- Late Blight
+- Leaf Mould
+- Septoria Leaf Spot
+- Yellow Leaf Curl Virus
+- Healthy
+
+---
+
+📊 Model Performance
+
+Metric| Result
+Accuracy| 92.40%
+Macro-F1| 0.9184
+Macro Precision| 0.9215
+Macro Recall| 0.9162
+CPU Inference| ~45 ms
+GPU Inference| ~12 ms
+Number of Classes| 21
+
+«Model metrics should be interpreted in the context of the evaluation dataset and should not be treated as a guarantee of field-level diagnostic accuracy.»
+
+---
+
+💧 2. Smart Irrigation Engine
+
+The Smart Irrigation Engine follows the FAO-56 Penman-Monteith methodology.
+
+Crop Evapotranspiration
+
+ETc = Kc × ET₀
+
+Where:
+
+- "ETc" = Crop evapotranspiration
+- "Kc" = Crop coefficient
+- "ET₀" = Reference evapotranspiration
+
+Water Deficit
+
+Deficit =
+(Field Capacity - Current Soil Moisture)
+× Root Depth
+× Soil Bulk Density
+
+The engine considers:
+
+- Soil moisture
+- Field capacity
+- Root depth
+- Crop growth stage
+- Crop coefficient
+- Weather forecast
+- Expected rainfall
+- Irrigation efficiency
+- Soil characteristics
+
+Irrigation Methods
+
+Method| Approx. Efficiency
+Drip| 90%
+Sprinkler| 75%
+Flood| 60%
+
+Decision States
+
+IRRIGATE_NOW
+MONITOR
+RAIN_DELAY
+
+The system can provide:
+
+- Water requirement
+- Water volume
+- Water deficit
+- Recommended irrigation time
+- Pump runtime
+
+---
+
+🌱 3. Sustainability Score
+
+The platform calculates a transparent sustainability score from 0 to 100.
+
+Sustainability Score =
+0.40 × Water Efficiency
++ 0.35 × Soil/Input Health
++ 0.25 × IPM/Biodiversity
+
+Weight Distribution
+
+Water Efficiency       40%
+Soil/Input Health      35%
+IPM/Biodiversity       25%
+
+The platform evaluates:
+
+- Drip irrigation
+- Sensor-based irrigation
+- Rainwater harvesting
+- Organic manure
+- Soil Health Card practices
+- Crop rotation
+- Bio-pesticide adoption
+- AI disease screening
+- Chemical spray reduction
+
+---
+
+🤖 4. Agentic AI Advisor
+
+The Agentic Advisor follows a closed-loop architecture:
+
+┌──────────────┐
+│   OBSERVE    │
+│              │
+│ Sensors      │
+│ Weather      │
+│ Crop Status  │
+│ Farm Records │
+└──────┬───────┘
+       │
+       ▼
+┌──────────────┐
+│    REASON    │
+│              │
+│ AI + Rules   │
+│ Scientific   │
+│ Models       │
+└──────┬───────┘
+       │
+       ▼
+┌──────────────┐
+│    DECIDE    │
+│              │
+│ Prioritize   │
+│ Actions      │
+└──────┬───────┘
+       │
+       ▼
+┌──────────────┐
+│ ACT / NOTIFY │
+│              │
+│ Advisory     │
+│ Alert        │
+│ Recommendation│
+└──────────────┘
+
+The system generates auditable recommendations based on farm observations and model outputs.
+
+---
+
+📡 5. IoT Telemetry
+
+The IoT module is designed for simulated and hardware-ready sensor integration.
+
+Supported Parameters
+
+- Soil moisture
+- Soil temperature
+- Ambient humidity
+- Soil pH
+- Electrical conductivity
+- Nitrogen
+- Phosphorus
+- Potassium
+
+Hardware Compatibility Concept
+
+ESP32 / Raspberry Pi
+        │
+        ▼
+ Soil & Environment Sensors
+        │
+        ▼
+ IoT Gateway
+        │
+        ▼
+ Django REST API
+        │
+        ▼
+ Database
+        │
+        ▼
+ React Dashboard
+
+Historical telemetry can be used for:
+
+- Trend analysis
+- Irrigation decisions
+- Crop monitoring
+- Anomaly detection
+- AI recommendations
+
+---
+
+🌦️ 6. Weather Intelligence
+
+The weather module provides agricultural weather information.
+
+Features include:
+
+- 5-day forecast
+- 3-hour forecast intervals
+- Rainfall prediction
+- Temperature
+- Humidity
+- Wind
+- Extreme weather alerts
+- Spray-window recommendations
+
+Weather information can be integrated with:
+
+- Irrigation decisions
+- Disease risk
+- Spraying decisions
+- Crop planning
+
+---
+
+🗣️ 7. Multilingual AI Assistant
+
+FarmeVerse AI includes a multilingual agricultural assistant.
+
+Supported Languages
+
+English → en
+Hindi    → hi
+Gujarati → gu
+
+Capabilities
+
+- Agricultural questions
+- Crop-related guidance
+- Disease explanations
+- Irrigation guidance
+- Farm record context
+- Weather-aware answers
+- Voice input
+- Text-to-speech
+
+The assistant can combine AI responses with available farm data and platform information.
+
+---
+
+📊 8. Mandi Market Intelligence
+
+The market intelligence module provides agricultural market information.
+
+Features:
+
+- Commodity prices
+- APMC market information
+- District filtering
+- Price trends
+- Market comparison
+- Historical price analysis
+
+Data ingestion can be connected to agricultural market data sources such as Agmarknet.
+
+---
+
+🏛️ 9. Government Schemes
+
+The Government Schemes module provides a centralized agricultural scheme directory.
+
+Example categories include:
+
+- PM-KISAN
+- PMFBY
+- i-Khedut
+- Solar Pump Schemes
+- Micro-Irrigation Schemes
+- State agricultural subsidies
+- Central government agricultural schemes
+
+The system can provide:
+
+- Scheme description
+- Eligibility
+- Benefits
+- Required documents
+- Application information
+
+---
+
+🧑‍🌾 10. Farm & Crop Records
+
+Farmers can maintain digital records for:
+
+Farm
+
+- Farm profile
+- Location
+- Land area
+- Soil information
+- Irrigation type
+
+Plots
+
+- Plot boundaries
+- Plot size
+- Crop
+- Soil parameters
+
+Crop Lifecycle
+
+Sowing
+   ↓
+Germination
+   ↓
+Vegetative
+   ↓
+Flowering
+   ↓
+Fruit Development
+   ↓
+Maturity
+   ↓
+Harvest
+
+Financial Records
+
+- Seeds
+- Fertilizers
+- Pesticides
+- Labour
+- Irrigation
+- Machinery
+- Other expenses
+
+---
+
+💰 11. Profit & Yield Calculator
+
+The financial engine estimates:
+
+Total Cost
+     ↓
+Expected Yield
+     ↓
+Expected Market Price
+     ↓
+Expected Revenue
+     ↓
+Net Profit / Loss
+
+Basic calculation:
+
+Revenue = Expected Yield × Expected Selling Price
+
+Net Profit = Revenue − Total Cultivation Cost
+
+It can also be extended to calculate:
+
+- Break-even price
+- Break-even yield
+- ROI
+- Cost per acre
+- Expected margin
+
+---
+
+🏗️ System Architecture & Data Flow
+
+                 ┌───────────────────────────────┐
+                 │       PHYSICAL FARM           │
+                 │                               │
+                 │ ESP32 / Raspberry Pi / LoRa  │
+                 │ Soil & Environment Sensors    │
+                 └──────────────┬────────────────┘
+                                │
+                                │ Telemetry
+                                ▼
+┌───────────────────────────────────────────────────────────────┐
+│                    DJANGO REST BACKEND                        │
+│                                                               │
+│ ┌─────────────────┐  ┌─────────────────┐  ┌────────────────┐ │
+│ │ Authentication  │  │ Farm Management │  │ Consultation   │ │
+│ └─────────────────┘  └─────────────────┘  └────────────────┘ │
+│                                                               │
+│ ┌─────────────────┐  ┌─────────────────┐  ┌────────────────┐ │
+│ │ Disease AI      │  │ Irrigation      │  │ Crop ML        │ │
+│ │ MobileNetV2     │  │ FAO-56          │  │ Random Forest  │ │
+│ └─────────────────┘  └─────────────────┘  └────────────────┘ │
+│                                                               │
+│ ┌─────────────────┐  ┌─────────────────┐  ┌────────────────┐ │
+│ │ Gemini AI       │  │ Agentic Advisor │  │ Sustainability │ │
+│ └─────────────────┘  └─────────────────┘  └────────────────┘ │
+│                                                               │
+│ ┌─────────────────┐  ┌─────────────────┐  ┌────────────────┐ │
+│ │ Weather         │  │ Mandi Prices    │  │ Schemes        │ │
+│ └─────────────────┘  └─────────────────┘  └────────────────┘ │
+└─────────────────────────────┬─────────────────────────────────┘
+                              │
+                              │ REST / JSON
+                              ▼
+┌───────────────────────────────────────────────────────────────┐
+│                    REACT FRONTEND                             │
+│                                                               │
+│ Farmer Portal │ Expert Portal │ Admin Portal                  │
+│                                                               │
+│ Dashboard │ AI Assistant │ IoT │ Weather │ Market │ Reports   │
+└───────────────────────────────────────────────────────────────┘
+
+---
+
+🛠️ Technology Stack
+
+Backend
+
+Technology| Purpose
+Python 3.10+| Backend & AI development
+Django 4.2| Web framework
+Django REST Framework| REST API
+SimpleJWT| JWT authentication
+TensorFlow| Deep learning
+Keras| Neural-network API
+Scikit-Learn| Machine learning
+Pandas| Data processing
+NumPy| Numerical computation
+Pillow| Image processing
+Google Gemini| Generative AI
+Gunicorn| Production WSGI server
+
+Frontend
+
+Technology| Purpose
+React 18| UI
+Vite| Frontend build tool
+Tailwind CSS| Styling
+Framer Motion| UI animation
+GSAP| Advanced animation
+Three.js| 3D visualization
+Lucide React| Icons
+Axios| HTTP requests
+React Router| Routing
+React Hook Form| Form management
+
+Database
+
+Development
+
+SQLite3
+
+Production
+
+PostgreSQL
+
+---
+
+📁 Repository Directory Structure
+
 farmeverse-main/
 │
-├── farmeverse-main/                     # Main project directory
-│   ├── backend/                         # Django REST Framework Backend
-│   │   ├── adminpanel/                  # Admin management & system analytics
-│   │   ├── agentic_advisor/             # Autonomous Observe-Reason-Act loop
-│   │   ├── analytics/                   # Platform telemetry & user reports
-│   │   ├── authentication/              # Multi-role JWT register/login/OTP
-│   │   ├── common/                      # Shared utilities & response formatters
-│   │   ├── config/                      # Django project settings & URLs
-│   │   ├── consultation/                # Farmer-Expert consultation threads
-│   │   ├── crop_management/             # Plot & planting lifecycle tracking
-│   │   ├── crop_recommendation/         # ML crop suitability engine
-│   │   ├── disease_detection/           # MobileNetV2 leaf disease detection
-│   │   ├── expert/                      # Expert profile & dashboard services
-│   │   ├── farm_records/                # Farm plots, crops, expenses & yields
-│   │   ├── farmer/                      # Farmer profile & dashboard endpoints
-│   │   ├── farmer_assistant/            # Multilingual GenAI & voice services
-│   │   ├── government_schemes/          # Schemes & subsidies directory
-│   │   ├── iot_sensors/                 # Simulated & hardware IoT gateway
-│   │   ├── market_prices/               # Mandi price scraper & analytics
-│   │   ├── smart_irrigation/            # FAO-56 irrigation balance engine
-│   │   ├── sustainability/              # Eco-score & carbon/water impact
-│   │   ├── users/                       # Custom user model & profile logic
-│   │   ├── weather/                     # OpenWeather API integration
-│   │   ├── manage.py                    # Django management script
-│   │   ├── requirements.txt             # Python backend dependencies
-│   │   └── .env.example                 # Sample environment configuration
+├── farmeverse-main/
 │   │
-│   ├── frontend/                        # React 18 + Vite Frontend
-│   │   ├── src/
-│   │   │   ├── assets/                  # Images, illustrations, and logos
-│   │   │   ├── components/              # Reusable UI components (Navbar, Modal, etc.)
-│   │   │   ├── context/                 # AuthContext & LanguageContext
-│   │   │   ├── locales/                 # English, Hindi, and Gujarati translations
-│   │   │   ├── pages/
-│   │   │   │   ├── Admin/               # Admin dashboard, schemes CMS, analytics
-│   │   │   │   ├── Authentication/      # Login, Register, Forgot Password flows
-│   │   │   │   ├── Expert/              # Expert inbox, availability, thread viewer
-│   │   │   │   ├── Farmer/              # 12+ Farmer modules & tools
-│   │   │   │   ├── LandingPage.jsx      # High-conversion public homepage
-│   │   │   │   └── Public/              # Terms of service, privacy policy
-│   │   │   ├── services/                # Axios API service callers
-│   │   │   ├── utils/                   # Formatting, date, and crop utilities
-│   │   │   ├── App.jsx                  # Main route declaration
-│   │   │   └── main.jsx                 # React root mount
-│   │   ├── package.json                 # Node dependencies & npm scripts
-│   │   ├── tailwind.config.js           # Tailwind configuration
-│   │   ├── vite.config.js               # Vite bundler configuration
-│   │   └── .env.example                 # Frontend environment sample
+│   ├── backend/
+│   │   ├── adminpanel/
+│   │   ├── agentic_advisor/
+│   │   ├── analytics/
+│   │   ├── authentication/
+│   │   ├── common/
+│   │   ├── config/
+│   │   ├── consultation/
+│   │   ├── crop_management/
+│   │   ├── crop_recommendation/
+│   │   ├── disease_detection/
+│   │   ├── expert/
+│   │   ├── farm_records/
+│   │   ├── farmer/
+│   │   ├── farmer_assistant/
+│   │   ├── government_schemes/
+│   │   ├── iot_sensors/
+│   │   ├── market_prices/
+│   │   ├── smart_irrigation/
+│   │   ├── sustainability/
+│   │   ├── users/
+│   │   ├── weather/
+│   │   │
+│   │   ├── manage.py
+│   │   ├── requirements.txt
+│   │   └── .env.example
 │   │
-│   ├── model/                           # Disease detection model inference
-│   │   ├── classes.py                   # 21 target disease classes & descriptions
-│   │   ├── predict.py                   # Standalone inference function & CLI
-│   │   ├── evaluate_model.py            # Evaluation & metric calculation script
-│   │   └── train_disease_model.py       # Transfer learning training pipeline
-│   │
-│   ├── trained_models/                  # Serialized weights & encoders
-│   │   ├── crop_model.pkl               # Trained Crop Recommendation model
-│   │   ├── farmverse_cotton_model.keras # Keras leaf disease model weights
-│   │   └── *.pkl                        # District, soil, season encoders
-│   │
-│   ├── report/                          # Technical documentation & reports
-│   │   └── model_report.md              # 1-Page verified Model Evaluation Report
-│   │
-│   ├── evaluation_summary.json          # Machine-readable per-class metrics
-│   ├── run_verification.py              # End-to-end verification test suite
-│   ├── schemes.json                     # Database of verified government schemes
-│   └── vercel.json                      # Vercel deployment configuration
+│   └── frontend/
+│       ├── src/
+│       │   ├── assets/
+│       │   ├── components/
+│       │   ├── context/
+│       │   ├── pages/
+│       │   ├── services/
+│       │   ├── hooks/
+│       │   ├── utils/
+│       │   ├── App.jsx
+│       │   └── main.jsx
+│       │
+│       ├── public/
+│       ├── package.json
+│       ├── vite.config.js
+│       ├── tailwind.config.js
+│       └── index.html
 │
-├── .gitignore                           # Git ignore rules
-├── first.mp4                            # Video demonstration part 1
-├── secound.mp4                          # Video demonstration part 2
-├── make_part__gwr_video_mvp.mp4         # Walkthrough MVP demo
-└── README.md                            # Primary documentation (this file)
-```
+├── report/
+│   └── model_report.md
+│
+├── README.md
+└── LICENSE
 
 ---
 
-## ⚙️ Prerequisites & System Requirements
+💻 Prerequisites & System Requirements
 
-Ensure you have the following software installed on your development machine:
+Before running the project, install:
 
-- **Python**: `3.10.x` or `3.11.x` (64-bit)
-- **Node.js**: `18.x` or `20.x` (LTS recommended)
-- **Package Managers**: `pip` (Python) and `npm` or `yarn` (Node.js)
-- **Operating System**: Windows 10/11, Ubuntu 20.04+, or macOS
-- **RAM**: Minimum 4 GB (8 GB+ recommended for TensorFlow model loading)
+Required
 
----
+- Python 3.10+
+- Node.js 18+
+- npm
+- Git
 
-## 🚀 Quick Start & Local Setup Guide
+Recommended
 
-Follow these steps to set up and run the entire platform locally in **under 10 minutes**:
-
-### Step 1: Clone the Repository
-```bash
-git clone https://github.com/your-username/farmeverse.git
-cd farmeverse/farmeverse-main
-```
+- 8 GB+ RAM
+- SSD storage
+- Modern Chrome/Edge/Firefox browser
+- NVIDIA GPU for faster model inference
 
 ---
 
-### Step 2: Backend Setup (Django REST API)
+🚀 Quick Start & Local Setup
 
-1. **Navigate to the backend directory**:
-   ```bash
-   cd backend
-   ```
+1. Clone the Repository
 
-2. **Create and activate a Python virtual environment**:
-   - **On Windows (PowerShell / Command Prompt)**:
-     ```bash
-     python -m venv venv
-     venv\Scripts\activate
-     ```
-   - **On Linux / macOS**:
-     ```bash
-     python3 -m venv venv
-     source venv/bin/activate
-     ```
+git clone <YOUR_GITHUB_REPOSITORY_URL>
 
-3. **Install dependencies**:
-   ```bash
-   pip install --upgrade pip
-   pip install -r requirements.txt
-   ```
-
-4. **Configure environment variables**:
-   Create a `.env` file inside `backend/` (you can copy `.env.example`):
-   ```bash
-   cp .env.example .env
-   ```
-
-5. **Run database migrations**:
-   ```bash
-   python manage.py migrate
-   ```
-
-6. **(Optional) Create a superuser or populate schemes**:
-   ```bash
-   python manage.py createsuperuser
-   ```
-
-7. **Start the Django development server**:
-   ```bash
-   python manage.py runserver 127.0.0.1:8000
-   ```
-   The backend API will be live at: **`http://127.0.0.1:8000/`**
+cd farmeverse-main
 
 ---
 
-### Step 3: Frontend Setup (React 18 + Vite)
+⚙️ Backend Setup
 
-1. **Open a new terminal window** and navigate to `frontend/`:
-   ```bash
-   cd farmeverse/farmeverse-main/frontend
-   ```
+Navigate to the backend:
 
-2. **Install Node.js dependencies**:
-   ```bash
-   npm install
-   ```
+cd farmeverse-main/backend
 
-3. **Configure frontend environment variables**:
-   Create a `.env` file inside `frontend/`:
-   ```env
-   VITE_API_BASE_URL=http://127.0.0.1:8000/api
-   ```
+Create a virtual environment:
 
-4. **Start the Vite development server**:
-   ```bash
-   npm run dev
-   ```
-   Open your browser and visit: **`http://localhost:5173/`**
+Windows
+
+python -m venv venv
+venv\Scripts\activate
+
+Linux / macOS
+
+python3 -m venv venv
+source venv/bin/activate
+
+Install dependencies:
+
+pip install -r requirements.txt
 
 ---
 
-### Step 4: Standalone Inference via CLI (One-Liner)
+🔐 Environment Variables
 
-You can run foliar disease prediction on any leaf image without starting the backend web server:
+Create a ".env" file inside the backend directory.
 
-```bash
-cd farmeverse/farmeverse-main
+Example:
 
-# Run inference and print formatted JSON
-python model/predict.py --image path/to/leaf_image.jpg --json
-```
+DEBUG=True
 
-Or call it directly in Python:
-```python
-from model.predict import predict
+SECRET_KEY=your-secret-key
 
-result = predict("path/to/leaf_image.jpg", return_dict=True)
-print(f"Disease: {result['prediction']}")
-print(f"Confidence: {result['confidence']:.2%}")
-print(f"Organic Remedy: {result['organic_remedy']}")
-```
+ALLOWED_HOSTS=localhost,127.0.0.1
 
----
+DATABASE_URL=sqlite:///db.sqlite3
 
-## 🔐 Environment Variables Configuration
+GEMINI_API_KEY=your-gemini-api-key
 
-### Backend `.env` (`backend/.env`)
+OPENWEATHER_API_KEY=your-openweather-api-key
 
-| Variable | Description | Example / Default |
-| :--- | :--- | :--- |
-| `DEBUG` | Enables Django debug mode | `True` (Dev) / `False` (Prod) |
-| `SECRET_KEY` | Django cryptographic secret key | `your-long-random-secret-string` |
-| `ALLOWED_HOSTS` | Comma-separated allowed hostnames | `localhost,127.0.0.1` |
-| `CORS_ALLOWED_ORIGINS` | Comma-separated frontend origins | `http://localhost:5173,http://127.0.0.1:5173` |
-| `OPENWEATHER_API_KEY` | OpenWeatherMap API key for live forecasts | `your_openweather_api_key_here` |
-| `GEMINI_API_KEY` | Google AI Studio Gemini API Key | `your_gemini_api_key_here` |
-| `JWT_SECRET_KEY` | Secret key used for signing JWT tokens | `jwt-secret-string` |
-| `ACCESS_TOKEN_LIFETIME_MINUTES` | Lifetime of JWT Access Token | `60` |
-| `EMAIL_HOST` | SMTP server for OTP emails | `smtp.gmail.com` |
-| `EMAIL_PORT` | SMTP port | `587` |
-| `EMAIL_HOST_USER` | Email username for notification dispatch | `your-email@gmail.com` |
-| `EMAIL_HOST_PASSWORD` | App-specific password for SMTP | `your-app-password` |
+AGMARKNET_API_KEY=your-agmarknet-api-key
 
-### Frontend `.env` (`frontend/.env`)
-
-| Variable | Description | Example / Default |
-| :--- | :--- | :--- |
-| `VITE_API_BASE_URL` | Base endpoint URL of the backend API | `http://127.0.0.1:8000/api` |
+«Never commit your real ".env" file or API keys to GitHub.»
 
 ---
 
-## 🧪 Verification & Test Suite
+🗄️ Database Setup
 
-FarmeVerse includes an automated verification test suite (`run_verification.py`) that executes end-to-end integration tests across all core and bonus modules:
+Run migrations:
 
-```bash
-cd farmeverse/farmeverse-main
-python run_verification.py
-```
+python manage.py makemigrations
+python manage.py migrate
 
-### What `run_verification.py` Validates:
-1. **[TEST 1/6] Core Disease Prediction CLI & Module**: Evaluates image tensor loading, model inference, and output dictionary consistency.
-2. **[TEST 2/6] Smart Irrigation Engine**: Validates FAO-56 soil water deficit calculation, irrigation status (`IRRIGATE_NOW`), and pump runtime estimates.
-3. **[TEST 3/6] Sustainability Score Engine**: Tests scoring logic, tier categorization, water savings, and carbon offset quantification.
-4. **[TEST 4/6] IoT Telemetry Gateway**: Simulates ESP32 node readings (Moisture, Temp, pH, N-P-K) and historical time-series retrieval.
-5. **[TEST 5/6] Agentic Autonomous Advisor**: Executes an **Observe-Reason-Decide-Act** cycle and verifies the auditable reasoning chain.
-6. **[TEST 6/6] GenAI Farmer Assistant**: Tests multilingual conversation generation in **Gujarati (`gu`)** and **English (`en`)**.
+Create an administrator:
 
----
+python manage.py createsuperuser
 
-## 📡 API Endpoints Reference
+Start the backend:
 
-All endpoints are prefixed with `/api/`. Authentication is performed via `Authorization: Bearer <access_token>`.
+python manage.py runserver
 
-### Authentication & Users (`/api/auth/` & `/api/users/`)
-- `POST /api/auth/register/` — Register new user (Farmer, Expert, Admin)
-- `POST /api/auth/login/` — Authenticate and receive JWT access/refresh tokens
-- `GET /api/auth/profile/` — Fetch authenticated user profile
-- `POST /api/auth/forgot-password/` — Request password reset OTP
-- `POST /api/auth/verify-otp/` — Verify OTP for password recovery
-- `POST /api/auth/reset-password/` — Set new password with verified OTP
+Backend:
 
-### Disease Detection (`/api/disease-detection/`)
-- `POST /api/disease-detection/upload/` — Upload leaf image for analysis
-- `POST /api/disease-detection/predict/` — Execute prediction on uploaded leaf image
-- `GET /api/disease-detection/history/` — List past diagnosis records for logged-in farmer
-- `GET /api/disease-detection/history/<id>/` — Retrieve full pathology report and remedies
-
-### Crop Recommendation (`/api/crop-recommendation/`)
-- `POST /api/crop-recommendation/predict/` — Predict optimal crops based on N-P-K, soil, pH, rainfall, temperature, and district
-
-### Smart Irrigation (`/api/smart-irrigation/`)
-- `POST /api/smart-irrigation/predict/` — Calculate FAO-56 root-zone water balance, deficit (mm), and pump runtimes
-
-### Weather & Agrometeorology (`/api/weather/`)
-- `GET /api/weather/current/?lat=<lat>&lon=<lon>` — Get live weather, spray window advisory, and 5-day forecasts
-
-### Sustainability Score (`/api/sustainability/`)
-- `POST /api/sustainability/calculate/` — Calculate farm eco-score ($0-100$), water savings (L), and $CO_2$ offset
-- `GET /api/sustainability/formula/` — Retrieve mathematical formulation documentation
-
-### Multilingual Farmer Assistant (`/api/farmer-assistant/`)
-- `POST /api/farmer-assistant/chat/` — Converse with GenAI assistant (supports `language: "gu" | "hi" | "en"`)
-
-### IoT Sensor Telemetry (`/api/iot/`)
-- `GET /api/iot/live-telemetry/` — Fetch real-time simulated/hardware node telemetry
-- `GET /api/iot/history/?hours=24` — Retrieve historical sensor metrics
-
-### Agentic Advisor (`/api/agentic-advisor/`)
-- `POST /api/agentic-advisor/run-loop/` — Trigger autonomous Observe-Reason-Decide-Act cycle
-- `GET /api/agentic-advisor/insights/` — Retrieve prioritized farm actions and reasoning trail
-
-### Mandi Market Prices (`/api/market-prices/`)
-- `GET /api/market-prices/latest/` — Fetch latest APMC mandi commodity rates
-- `GET /api/market-prices/by-crop/?crop=<crop>` — Filter rates by commodity
-- `GET /api/market-prices/districts/` — List all monitored districts
-
-### Government Schemes (`/api/government-schemes/` & `/api/schemes/`)
-- `GET /api/schemes/` — Public listing of agricultural welfare schemes
-- `GET /api/schemes/<id>/` — Scheme detail, eligibility criteria, and application links
-
-### Expert Consultation (`/api/consultation/`)
-- `POST /api/consultation/` — Create new consultation request with image attachments
-- `GET /api/consultation/farmer/` — List consultations initiated by logged-in farmer
-- `GET /api/consultation/expert/` — List consultation requests queued for the expert
-- `POST /api/consultation/<id>/reply/` — Send response or prescription in consultation thread
+http://127.0.0.1:8000/
 
 ---
 
-## 🚢 Deployment Guide
+🎨 Frontend Setup
 
-### Frontend Deployment (Vercel)
-The frontend includes a pre-configured `vercel.json` for seamless deployment:
-1. Push your repository to GitHub.
-2. Import the project into your [Vercel Dashboard](https://vercel.com).
-3. Set the **Root Directory** to `farmeverse-main/frontend`.
-4. Add the environment variable:
-   - `VITE_API_BASE_URL` = `https://your-production-backend.com/api`
-5. Click **Deploy**.
+Open another terminal:
 
-### Backend Deployment (Render / Railway / Ubuntu VPS)
-1. **Production Settings**:
-   - Set `DEBUG=False` in your production `.env`.
-   - Set `ALLOWED_HOSTS` to your production domain (e.g., `api.farmeverse.com`).
-   - Configure `CORS_ALLOWED_ORIGINS` to include your Vercel frontend URL.
-2. **Collect Static Files**:
-   ```bash
-   python manage.py collectstatic --noinput
-   ```
-3. **Run with Gunicorn**:
-   ```bash
-   gunicorn config.wsgi:application --bind 0.0.0.0:8000 --workers 3
-   ```
+cd farmeverse-main/frontend
+
+Install dependencies:
+
+npm install
+
+Start the development server:
+
+npm run dev
+
+Frontend:
+
+http://localhost:5173/
 
 ---
 
-## 🔍 Limitations & Roadmap
+🔗 Frontend API Configuration
 
-### Known Limitations
-1. **Extreme Lighting Variations**: Very low-light or severe lens flare images can reduce leaf disease classification confidence.
-2. **Multi-Infection Co-occurrence**: When early fungal lesions and bacterial spots coincide on the same leaf surface, secondary infections may exhibit lower confidence scores.
-3. **Severe Leaf Occlusion**: Leaves heavily occluded by dirt clods or dense overlapping foliage benefit from multi-angle photo capture.
+Create a frontend environment file:
 
-### Future Roadmap
-- [ ] Edge AI inference deployment on mobile devices using TensorFlow Lite (`.tflite`).
-- [ ] Integration with ISRO Bhuvan satellite remote sensing for vegetative index (NDVI) tracking.
-- [ ] Direct WhatsApp / SMS alert dispatch for severe frost and pest outbreak warnings.
-- [ ] Drone spray path optimization integration with autonomous spray controllers.
+frontend/.env
 
----
+Example:
 
-## 🤝 Contributing & License
+VITE_API_BASE_URL=http://127.0.0.1:8000/api
 
-Contributions, issues, and feature requests are welcome! Feel free to check the issues tab or submit a Pull Request.
-
-This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
+Then restart the Vite development server.
 
 ---
 
-<p align="center">
-  <b>🌾 FarmeVerse AI (AgriSmart AI)</b> — <i>Empowering Farmers with Precision Intelligence for a Sustainable Tomorrow.</i>
-</p>
+🔑 Authentication
+
+FarmeVerse AI uses JWT-based authentication.
+
+User
+ │
+ ▼
+Login / Register
+ │
+ ▼
+JWT Access Token
+ │
+ ▼
+JWT Refresh Token
+ │
+ ▼
+Authenticated API Requests
+
+Role-based access:
+
+FARMER
+EXPERT
+ADMIN
+
+Protected API endpoints validate the JWT before processing requests.
+
+---
+
+🔌 API Endpoints
+
+The exact endpoint paths may vary according to the current Django URL configuration. A representative API structure is:
+
+Authentication
+
+POST /api/auth/register/
+POST /api/auth/login/
+POST /api/auth/token/refresh/
+POST /api/auth/logout/
+
+Farmer
+
+GET  /api/farmer/profile/
+PUT  /api/farmer/profile/
+GET  /api/farmer/dashboard/
+
+Farm Records
+
+GET    /api/farms/
+POST   /api/farms/
+GET    /api/farms/{id}/
+PUT    /api/farms/{id}/
+DELETE /api/farms/{id}/
+
+Disease Detection
+
+POST /api/disease/predict/
+
+Example:
+
+Image
+  ↓
+Preprocessing
+  ↓
+TensorFlow Model
+  ↓
+Prediction
+  ↓
+Disease
+  ↓
+Treatment Recommendation
+
+Crop Recommendation
+
+POST /api/crop-recommendation/predict/
+
+Smart Irrigation
+
+POST /api/irrigation/calculate/
+GET  /api/irrigation/status/
+
+IoT
+
+POST /api/iot/telemetry/
+GET  /api/iot/telemetry/
+GET  /api/iot/latest/
+
+Weather
+
+GET /api/weather/
+GET /api/weather/forecast/
+
+Market Prices
+
+GET /api/market-prices/
+
+Government Schemes
+
+GET /api/schemes/
+GET /api/schemes/{id}/
+
+Consultation
+
+GET  /api/consultations/
+POST /api/consultations/
+POST /api/consultations/{id}/messages/
+
+---
+
+🧪 Verification & Testing
+
+Run Django tests:
+
+python manage.py test
+
+Check Django configuration:
+
+python manage.py check
+
+Frontend production build:
+
+npm run build
+
+Preview production build:
+
+npm run preview
+
+---
+
+🔍 Recommended Testing Areas
+
+Test the following modules before deployment:
+
+Authentication
+
+- Registration
+- Login
+- JWT refresh
+- Logout
+- Role authorization
+
+Disease Detection
+
+- Valid leaf image
+- Invalid image
+- Large image
+- Low-quality image
+- Unsupported format
+
+Irrigation
+
+- Low soil moisture
+- High soil moisture
+- Rain forecast
+- Different irrigation methods
+- Different crop stages
+
+Crop Recommendation
+
+- Valid soil parameters
+- Missing parameters
+- Invalid ranges
+- Different seasons
+- Different districts
+
+IoT
+
+- Valid telemetry
+- Missing sensor data
+- Invalid sensor values
+- Historical data
+- Sensor connectivity
+
+---
+
+🚢 Deployment Guide
+
+For production deployment, the recommended architecture is:
+
+                    Internet
+                       │
+                       ▼
+                  Cloudflare
+                       │
+                       ▼
+                Reverse Proxy
+                       │
+          ┌────────────┴────────────┐
+          │                         │
+          ▼                         ▼
+      React SPA                Django API
+                                   │
+                       ┌───────────┼───────────┐
+                       │           │           │
+                       ▼           ▼           ▼
+                   PostgreSQL    Redis       Storage
+
+Backend Production
+
+Use:
+
+Django
++
+Gunicorn
++
+PostgreSQL
+
+Example:
+
+gunicorn config.wsgi:application
+
+Configure:
+
+DEBUG=False
+
+Set:
+
+- Secure "SECRET_KEY"
+- Production "ALLOWED_HOSTS"
+- HTTPS
+- CORS policy
+- CSRF configuration
+- Database credentials
+- API keys
+
+---
+
+🐳 Docker Deployment
+
+The project can be containerized using Docker.
+
+Suggested services:
+
+docker-compose
+│
+├── frontend
+├── backend
+├── postgres
+├── redis
+└── nginx
+
+This makes the platform easier to deploy and scale across environments.
+
+---
+
+🔐 Security Considerations
+
+Production deployments should implement:
+
+- HTTPS everywhere
+- Secure JWT handling
+- Strong Django "SECRET_KEY"
+- Environment-based secrets
+- CORS restrictions
+- CSRF protection
+- Rate limiting
+- API authentication
+- Role-based authorization
+- File-upload validation
+- Image size limits
+- Input validation
+- Database backups
+- Audit logging
+
+Never commit secrets
+
+Do not upload:
+
+.env
+API keys
+Database passwords
+JWT secrets
+Cloud credentials
+Private certificates
+
+Use:
+
+.env.example
+
+for documentation only.
+
+---
+
+⚠️ AI & Agricultural Safety
+
+FarmeVerse AI is intended as a decision-support platform, not a replacement for qualified agricultural professionals.
+
+AI disease predictions can be affected by:
+
+- Image quality
+- Lighting
+- Camera quality
+- Crop variety
+- Disease stage
+- Field conditions
+- Dataset limitations
+
+Chemical recommendations should be validated against:
+
+- Local regulations
+- Crop label requirements
+- Application rates
+- Pre-harvest intervals
+- Expert agronomic guidance
+
+Similarly, irrigation recommendations should be validated against actual field conditions, sensor calibration, soil properties, and local agronomic practices.
+
+---
+
+📌 Limitations
+
+Current limitations may include:
+
+- Disease model performance can vary on real-world field images.
+- IoT telemetry may operate in simulation mode when physical hardware is unavailable.
+- Weather forecasts depend on external weather providers.
+- Market-price availability depends on external agricultural data sources.
+- AI-generated advice can contain errors and should be validated.
+- Sensor readings require proper calibration.
+- Agricultural conditions vary significantly by location and crop variety.
+
+---
+
+🛣️ Roadmap
+
+Phase 1 — Foundation
+
+- [x] Farmer portal
+- [x] Expert portal
+- [x] Admin portal
+- [x] Authentication
+- [x] Farm management
+- [x] Disease detection
+- [x] Crop recommendation
+
+Phase 2 — Smart Agriculture
+
+- [x] Smart irrigation
+- [x] Weather intelligence
+- [x] IoT telemetry
+- [x] Sustainability score
+- [x] Mandi price intelligence
+
+Phase 3 — AI Ecosystem
+
+- [x] Multilingual AI assistant
+- [x] Voice interaction
+- [x] Agentic advisory
+- [x] Expert consultation
+
+Future Improvements
+
+- [ ] Real ESP32 sensor deployment
+- [ ] LoRaWAN farm-scale connectivity
+- [ ] Satellite crop monitoring
+- [ ] NDVI analysis
+- [ ] Pest outbreak prediction
+- [ ] Computer-vision yield estimation
+- [ ] Automated irrigation hardware control
+- [ ] Advanced farm digital twin
+- [ ] Offline-first mobile application
+- [ ] Android/iOS native application
+- [ ] Regional language expansion
+- [ ] Advanced agricultural forecasting
+- [ ] Explainable AI dashboards
+
+---
+
+📈 Scalability Strategy
+
+For large-scale deployment, the architecture can evolve from a monolithic Django application toward modular services.
+
+                    Load Balancer
+                         │
+            ┌────────────┼────────────┐
+            ▼            ▼            ▼
+        API Server    API Server    API Server
+            │            │            │
+            └────────────┼────────────┘
+                         │
+                     Redis
+                         │
+            ┌────────────┼────────────┐
+            ▼            ▼            ▼
+        PostgreSQL    AI Workers    IoT Workers
+                         │
+                         ▼
+                    ML Inference
+
+Recommended production improvements:
+
+- PostgreSQL
+- Redis caching
+- Celery background workers
+- Object storage for images
+- CDN
+- Load balancing
+- Database indexing
+- API rate limiting
+- Horizontal scaling
+- Monitoring and logging
+- Model-serving infrastructure
+
+---
+
+📊 Observability
+
+Production monitoring should track:
+
+Application
+
+- API latency
+- Error rate
+- Request volume
+- CPU
+- Memory
+
+AI
+
+- Inference latency
+- Model confidence
+- Prediction distribution
+- Model failures
+
+IoT
+
+- Sensor connectivity
+- Telemetry frequency
+- Missing readings
+- Abnormal values
+
+Business
+
+- Active farmers
+- Active farms
+- Disease diagnoses
+- Irrigation recommendations
+- AI assistant usage
+- Expert consultations
+
+---
+
+🤝 Contributing
+
+Contributions are welcome.
+
+1. Fork the repository
+
+git fork <repository-url>
+
+2. Create a branch
+
+git checkout -b feature/new-feature
+
+3. Make your changes
+
+Follow the existing project structure and coding conventions.
+
+4. Test your changes
+
+python manage.py test
+npm run build
+
+5. Commit
+
+git add .
+git commit -m "Add new agriculture feature"
+
+6. Push
+
+git push origin feature/new-feature
+
+7. Open a Pull Request
+
+Describe:
+
+- What changed
+- Why it changed
+- How it was tested
+- Any known limitations
+
+---
+
+📄 License
+
+This project is licensed under the MIT License.
+
+See the "LICENSE" file for complete license information.
+
+---
+
+🙏 Acknowledgements
+
+FarmeVerse AI builds upon technologies, datasets, scientific methodologies, and open-source ecosystems including:
+
+- TensorFlow
+- Keras
+- Scikit-Learn
+- Django
+- Django REST Framework
+- React
+- Vite
+- Tailwind CSS
+- Three.js
+- FAO-56 Penman-Monteith methodology
+- PlantVillage
+- PlantDoc
+- Agricultural market data sources
+- Weather data providers
+- Google Gemini
+
+---
+
+🌾 Vision
+
+«"Empowering every farmer with intelligent, accessible and sustainable agricultural decision support."»
+
+FarmeVerse AI aims to bridge the gap between traditional farming knowledge and modern artificial intelligence by bringing scientific models, machine learning, IoT, weather intelligence, market information, and expert knowledge together in one ecosystem.
+
+                 🌱 FARMER
+                     │
+        ┌────────────┼────────────┐
+        │            │            │
+       AI           IoT         SCIENCE
+        │            │            │
+        └────────────┼────────────┘
+                     │
+                     ▼
+              🌾 FARMEVERSE AI
+                     │
+        ┌────────────┼────────────┐
+        │            │            │
+     INSIGHT      ACTION       PROFIT
+        │            │            │
+        └────────────┼────────────┘
+                     ▼
+              🌍 SUSTAINABLE
+                 FARMING
+
+---
+
+⭐ FarmeVerse AI
+
+AI + IoT + Agriculture + Science + Sustainability
+
+Built to help farmers make better decisions — from seed to sale. 🌾🤖
