@@ -25,7 +25,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-default-fallback-key-chang
 
 DEBUG = os.getenv('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = [host.strip() for host in os.getenv('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',') if host.strip()]
+ALLOWED_HOSTS = [host.strip() for host in os.getenv('ALLOWED_HOSTS', '*').split(',') if host.strip()]
 
 
 # Application definition
@@ -71,6 +71,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',  # Put CorsMiddleware as high as possible
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # Serve static files in production on Railway
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -101,12 +102,32 @@ WSGI_APPLICATION = 'config.wsgi.application'
 ASGI_APPLICATION = 'config.asgi.application'
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': Path(os.environ.get('SQLITE_DB_PATH')) if os.environ.get('SQLITE_DB_PATH') else BASE_DIR / 'db.sqlite3',
+# Database Configuration - Supports Railway PostgreSQL (via DATABASE_URL) with SQLite fallback
+DATABASE_URL = os.getenv('DATABASE_URL')
+if DATABASE_URL:
+    try:
+        import dj_database_url
+        DATABASES = {
+            'default': dj_database_url.config(
+                default=DATABASE_URL,
+                conn_max_age=600,
+                conn_health_checks=True,
+            )
+        }
+    except ImportError:
+        DATABASES = {
+            'default': {
+                'ENGINE': 'django.db.backends.sqlite3',
+                'NAME': Path(os.environ.get('SQLITE_DB_PATH')) if os.environ.get('SQLITE_DB_PATH') else BASE_DIR / 'db.sqlite3',
+            }
+        }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': Path(os.environ.get('SQLITE_DB_PATH')) if os.environ.get('SQLITE_DB_PATH') else BASE_DIR / 'db.sqlite3',
+        }
     }
-}
 
 
 # Authentication and Password validation
@@ -154,6 +175,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -164,16 +186,31 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-# Django CORS headers configuration
-if DEBUG:
-    CORS_ALLOW_ALL_ORIGINS = True
-else:
-    CORS_ALLOW_ALL_ORIGINS = False
-    CORS_ALLOWED_ORIGINS = [
-        origin.strip()
-        for origin in os.getenv('CORS_ALLOWED_ORIGINS', 'http://localhost:5173,http://127.0.0.1:5173').split(',')
-        if origin.strip()
-    ]
+# Django CORS and CSRF headers configuration
+CORS_ALLOW_ALL_ORIGINS = os.getenv('CORS_ALLOW_ALL_ORIGINS', 'True' if DEBUG else 'False') == 'True'
+CORS_ALLOWED_ORIGINS = [
+    origin.strip()
+    for origin in os.getenv(
+        'CORS_ALLOWED_ORIGINS',
+        'http://localhost:5173,http://127.0.0.1:5173'
+    ).split(',')
+    if origin.strip()
+]
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    r"^https://.*\.vercel\.app$",
+    r"^https://.*\.railway\.app$",
+]
+CORS_ALLOW_CREDENTIALS = True
+
+# CSRF Trusted Origins (required for POST requests in production on Railway/Vercel)
+CSRF_TRUSTED_ORIGINS = [
+    origin.strip()
+    for origin in os.getenv(
+        'CSRF_TRUSTED_ORIGINS',
+        'https://*.railway.app,https://*.vercel.app,http://localhost:5173,http://127.0.0.1:5173'
+    ).split(',')
+    if origin.strip()
+]
 
 
 # Django REST Framework Configuration
@@ -240,6 +277,7 @@ CROP_MODEL_DIR = os.path.abspath(os.path.join(BASE_DIR, '..', 'trained_models'))
 
 # Production security settings (active when DEBUG=False)
 if not DEBUG:
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
     SECURE_SSL_REDIRECT = os.getenv('SECURE_SSL_REDIRECT', 'True') == 'True'
     SECURE_HSTS_SECONDS = 31536000
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True

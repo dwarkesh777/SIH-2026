@@ -1,8 +1,8 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "vite",
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist",
+  "buildCommand": "cd farmeverse-main/frontend && npm install && npm run build",
+  "outputDirectory": "farmeverse-main/frontend/dist",
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
