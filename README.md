@@ -1,6 +1,6 @@
 # 🌾 FarmeVerse AI (AgriSmart AI)
 
-### Intelligent Agriculture & Precision Farming Decision-Support Ecosystem
+### Intelligent Agriculture & Precision Farming Decision-Support Ecosystem (https://sih-2026-one-lovat.vercel.app/)
 
 > Transforming smallholder and commercial agriculture through Deep Learning, IoT Telemetry, Agro-Hydrological Science, and Multilingual Agentic AI.
 
